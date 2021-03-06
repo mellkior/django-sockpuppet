@@ -81,7 +81,7 @@ If you already are using `django-channels` in your project you can take a look a
 
 You may already have a working build system in javascript for your Django project. If you don't we've got you covered.
 
-There isn't a particularly strong convention on javascript should be handled in Django, so below is a proposal on how you could organize your build setup.
+There isn't a particularly strong convention on how javascript should be handled in Django, so below is a proposal on how you could organize your build setup.
 
 So let's first install all the dependencies we need for the most minimal Webpack configuration to work.
 
@@ -94,7 +94,7 @@ We also need to build and watch any changes that we make in our project. For thi
 ```javascript
 "scripts": {
     "build": "webpack --mode production",
-    "watch": "webpack --watch --info-verbosity verbose"
+    "watch": "webpack --watch"
 },
 ```
 
@@ -158,4 +158,4 @@ And that's it! **You can start using Sockpuppet in your application.**
 
 By default, Django is using the database as a backend for sessions. Examples in the quickstart will be using sessions as a way to persist data between page loads.
 
-This may cause more strain on your database in high-traffic scenarios than would you like. Since you are already using Redis for `django-channels` you could use Redis as a session storage. The library [`django-redis`](https://github.com/jazzband/django-redis) has instructions to set that up.
+This may cause more strain on your database in high-traffic scenarios than you would like. Since you are already using Redis for `django-channels` you could use Redis as a session storage. The library [`django-redis`](https://github.com/jazzband/django-redis) has instructions to set that up.
