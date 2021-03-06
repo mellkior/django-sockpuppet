@@ -204,8 +204,8 @@ If you're responding to an event like click on an element that would have a defa
 from sockpuppet import reflex
 
 class CounterReflex(reflex.Reflex):
-  def increment(step=1)
-    self.session['count'] = int(session['count']) + step
+    def increment(self, step=1):
+        self.session['count'] = int(self.session['count']) + step
 ```
 {% endcode %}
 
