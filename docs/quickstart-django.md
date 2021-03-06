@@ -205,7 +205,7 @@ from sockpuppet import reflex
 
 class CounterReflex(reflex.Reflex):
     def increment(self, step=1):
-        self.session['count'] = int(self.session['count']) + step
+        self.session['count'] = int(self.element.dataset['count']) + step
 ```
 {% endcode %}
 
@@ -220,7 +220,10 @@ class CountView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['count'] = self.request.session.get('count', 0)
+        if 'count' in self.request.session:
+            context['count'] = self.request.session['count']
+        else:
+            context['count'] = self.request.session['count'] = 0
         return context
 ```
 {% endcode %}
